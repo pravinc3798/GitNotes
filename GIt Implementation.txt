@@ -1,0 +1,84 @@
+Configuring GIT
+	-Name
+	-Email
+	-Default Editor
+	-Line Ending
+	
+Configuration can be done on three levels
+1. System Level (All users)
+2. Global Level (All repositories of the current user)
+3. Local Level (The current repository)
+
+git config --global user.name "Pravin Choudhary" 
+// double quotes are required because there is space in name.
+
+git config --global user.email pravin.choudhary88@gmail.com
+
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+git config --global core.autocrlf true
+// crlf - carriage return line feed (windows new line - /r/n whereas in mac new line - /n. Thus crlf should be true for windows and input for mac)
+
+
+
+
+
+git init
+// initialise empty git repository and git will not automatically track your files, just an empty repository is created.
+
+example : we will create, modify, delete, stage, commit a txt file using shell.
+
+echo hello > file1.txt
+echo hello > file2.txt
+
+------status, add, commit
+
+git status             // here we will get output as - NO COMMITS YET - Untracked files : file1.txt, file2.txt
+
+git add file1.txt file2.txt       // we can use git add . -to add all files, we can also use pattern like git add *.txt
+
+echo world >> file1.txt
+
+// in staging area we have file1.txt (that contains only hello) and file2.txt, the modified file1.txt is not added in the staging area as we have not added it yet.
+
+git status             // will show UNSTAGES changes in file1.txt
+
+git add file1.txt       // staging area will now have the modified file1.txt and file2.txt
+
+git commit -m "Created two txt files"   //2 files changes, 3 insertions(+) --- meaning two were added that contained 3 lines of code.
+
+//now our working directory is clean, it doesn't have any new changes
+
+------delete
+
+rm file2.txt        //file2.txt deleted from project directory
+
+git add file2.txt        //staging deletion 
+
+git commit -m "removed unused code"
+
+(single step operation git rm file2.txt - removes file from project directory and staging area, then commit to delete from repository)
+
+-------rename
+
+mv file1.txt main.js
+
+git add file1.txt // staging the deletion
+git add main.js  // adding untracked file
+
+OR
+
+git mv file1.txt main.js   (1 step operation)
+
+git commit -m "renamed a file"
+
+--------ignore files
+
+once committed the file/folder to repository, it cannot be ignored, unless deleted from staging area and then committing the delete.
+
+to ignore unstaged files/folder
+
+echo file/folder > .gitignore
+
+
+

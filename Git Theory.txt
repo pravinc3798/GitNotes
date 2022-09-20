@@ -1,0 +1,22 @@
+Git is a version control system that records the changes made to the code over time in a special database call repository.
+We can look at our repository and know who has made what changes, when and why. And if we screw something up, we can easily revert our project back to an earlier state.
+Without a version control system, we have to constantly store the copies of the entire project in various folders. This is very slow and doesn't scale at all, especially if multiple people have work on same project.
+
+So having a version control system, we can-
+	1. Track History
+	2. Work Together
+
+There are two types of version control systems - Centralized and Distributed.
+
+In a centralized system all team members connect to a central server to get the latest copy of the code and to share their changes with others.
+Examples - Subversion and Microsoft Teams.
+The problem with the centralized architecture is the single point of failure (if the server goes offline, we cannot collaborate or save the snapshots or our project, so we have to wait until the server comes back online.)
+
+In distributed systems, every team member has a copy of project with its histroy on their machine, so we can save snapshots of our project locally on our machine.
+Examples - Git and Mercurial.
+
+Ways to use Git
+	1. Command Line (most powerful way)
+	2. Code editors and IDEs (essential features)
+	3. GUI Tools (GitKraken And SourceTree)
+	
